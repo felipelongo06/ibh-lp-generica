@@ -1,18 +1,14 @@
 /* eslint-disable */
 /* App entry — IBH LP Alopecia Androgenética */
-
 const { useEffect: useEf } = React;
-
 function App() {
   const defaults = window.__IBH_DEFAULTS || {};
   const [t, setTweak] = useTweaks(defaults);
-
   // Apply mode + accent at root
   useEf(() => {
     document.documentElement.setAttribute("data-mode", t.mode || "light");
     document.documentElement.setAttribute("data-accent", t.accent || "caramel");
   }, [t.mode, t.accent]);
-
   // dismiss splash
   useEf(() => {
     const s = document.getElementById("splash");
@@ -21,7 +17,6 @@ function App() {
       setTimeout(() => s.remove(), 900);
     }
   }, []);
-
   return (
     <>
       <TopNav />
@@ -32,14 +27,12 @@ function App() {
         <TratamentosSection />
         <EquipeSection />
         <ResultadosSection show={t.showBeforeAfter !== false} />
-        <InvestimentoSection />
         <DiferenciaisSection />
         <DepoimentosSection />
         <FAQSection />
         <FinalCTASection />
       </main>
       <Footer />
-
       <TweaksPanel title="Tweaks">
         <TweakSection label="Aparência">
           <TweakRadio
@@ -72,6 +65,5 @@ function App() {
     </>
   );
 }
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
