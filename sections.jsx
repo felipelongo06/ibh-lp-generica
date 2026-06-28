@@ -70,7 +70,7 @@ function HeroSection({ layout = "editorial" }) {
               Medicina capilar de precisão para mulheres. Tricoscopia digital, protocolos exclusivos e medicina baseada em evidência — não em promessas.
             </p>
             <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="#contato">Agendar avaliação no WhatsApp <span className="arrow" /></a>
+              <a className="btn btn-primary" href="https://tintim.link/whatsapp/63084cce-c4a6-4224-8640-536b5f885bdb/629f9272-6ca5-44a2-87d3-980aa58b8796" target="_blank" rel="noopener">Agendar avaliação no WhatsApp <span className="arrow" /></a>
               <a className="btn btn-ghost" href="#diagnostico">Como diagnosticamos</a>
             </div>
             <div style={{ marginTop: 64 }}>
