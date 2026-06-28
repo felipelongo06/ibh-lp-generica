@@ -628,87 +628,6 @@ function ResultadosSection({ show = true }) {
 }
 
 /* =========================================================
-   INVESTIMENTO
-========================================================= */
-function InvestimentoSection() {
-  return (
-    <section id="investimento" data-screen-label="07 Investimento">
-      <div className="shell">
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1.1fr",
-          gap: 64,
-          alignItems: "center",
-          padding: "clamp(40px, 6vw, 80px)",
-          background: "var(--verde-petroleo)",
-          color: "var(--on-deep)",
-          borderRadius: "var(--r-lg)"
-        }} className="inv-grid">
-          <div>
-            <Eyebrow>Investimento</Eyebrow>
-            <h2 className="section-h" style={{ marginTop: 18, color: "var(--on-deep)" }}>
-              Tratamento médico, <em style={{ color: "var(--on-deep-muted)" }}>não pacote estético.</em>
-            </h2>
-            <p style={{ color: "var(--on-deep-muted)", marginTop: 24, maxWidth: "48ch", lineHeight: 1.6 }}>
-              O plano completo é definido após a tricoscopia e exames. O valor abaixo é a faixa inicial dos protocolos médicos para alopecia androgenética feminina.
-            </p>
-          </div>
-
-          <div>
-            <div style={{
-              border: "1px solid rgba(232,226,212,.18)",
-              borderRadius: "var(--r-md)",
-              padding: "32px",
-              background: "rgba(232,226,212,.04)"
-            }}>
-              <div className="mono" style={{ color: "var(--caramelo-soft)" }}>Plano completo · a partir de</div>
-              <div style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(56px, 8vw, 112px)",
-                fontWeight: 400,
-                letterSpacing: "-0.03em",
-                lineHeight: 0.95,
-                marginTop: 16,
-                whiteSpace: "nowrap"
-              }}>
-                R$&nbsp;13.000<span style={{ color: "var(--on-deep-muted)", fontStyle: "italic", fontSize: "0.5em" }}>*</span>
-              </div>
-              <div style={{ display: "flex", gap: 32, marginTop: 32, paddingTop: 24, borderTop: "1px solid rgba(232,226,212,.15)" }}>
-                <div>
-                  <div className="mono" style={{ color: "var(--on-deep-muted)" }}>Duração</div>
-                  <div style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 22, marginTop: 4 }}>
-                    a partir de 8 meses
-                  </div>
-                </div>
-                <div>
-                  <div className="mono" style={{ color: "var(--on-deep-muted)" }}>Inclui</div>
-                  <div style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 22, marginTop: 4 }}>
-                    consultas, protocolo & acompanhamento
-                  </div>
-                </div>
-              </div>
-              <p className="fineprint" style={{ color: "var(--on-deep-muted)", marginTop: 24 }}>
-                * Valor de referência. O plano final é apresentado pela médica em consulta, conforme indicação clínica.
-              </p>
-            </div>
-            <a className="btn btn-on-deep" href="#contato" style={{ marginTop: 24 }}>
-              Agendar avaliação clínica
-              <span className="arrow" />
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <style>{`
-        @media (max-width: 880px) {
-          .inv-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
-        }
-      `}</style>
-    </section>
-  );
-}
-
-/* =========================================================
    DIFERENCIAIS
 ========================================================= */
 function DiferenciaisSection() {
@@ -901,6 +820,6 @@ function FinalCTASection() {
 
 Object.assign(window, {
   HeroSection, ContextSection, DiagnosticoSection, TratamentosSection,
-  EquipeSection, ResultadosSection, InvestimentoSection,
+  EquipeSection, ResultadosSection,
   DiferenciaisSection, DepoimentosSection, FAQSection, FinalCTASection
 });
