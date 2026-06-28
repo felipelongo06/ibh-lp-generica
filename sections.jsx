@@ -805,7 +805,7 @@ function FinalCTASection() {
           <p className="lede" style={{ margin: "0 auto 36px" }}>
             Agende sua avaliação com a equipe médica do Instituto Bárbara Helen pelo WhatsApp. Diagnóstico e plano no mesmo dia.
           </p>
-          <a className="btn btn-primary" href="#" style={{ padding: "18px 28px", fontSize: 15 }}>
+          <a className="btn btn-primary" href="https://tintim.link/whatsapp/63084cce-c4a6-4224-8640-536b5f885bdb/629f9272-6ca5-44a2-87d3-980aa58b8796" target="_blank" rel="noopener" style={{ padding: "18px 28px", fontSize: 15 }}>
             Falar no WhatsApp agora
             <span className="arrow" />
           </a>
