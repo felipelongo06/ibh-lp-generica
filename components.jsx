@@ -249,7 +249,7 @@ function TopNav() {
 
 // — Footer —
 function Footer() {
-  const maps = "https://www.google.com/maps?q=R.+Tenerife,+67+-+Vila+Olímpia,+São+Paulo+-+SP,+04548-005";
+  const maps = "https://www.google.com/maps/search/?api=1&query=Instituto+Bárbara+Helen+-+Medicina+Capilar&query_place_id=ChIJD3Vb5s5QzpQRALOlu4JbJlY";
   return (
     <footer className="site-footer" id="contato">
       <div className="shell">
