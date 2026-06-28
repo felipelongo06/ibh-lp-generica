@@ -3,6 +3,9 @@
 
 const { useState, useEffect, useRef, useCallback, useMemo } = React;
 
+// Link único de conversão (WhatsApp via Tintim) — usado em todos os CTAs de agendamento
+const WA_LINK = "https://tintim.link/whatsapp/63084cce-c4a6-4224-8640-536b5f885bdb/629f9272-6ca5-44a2-87d3-980aa58b8796";
+
 // — Wordmark —
 function Wordmark({ size = 18, mono = false }) {
   if (mono) {
@@ -135,7 +138,7 @@ function CTAPair({ on = "light" }) {
   const dark = on === "dark";
   return (
     <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
-      <a className={dark ? "btn btn-on-deep" : "btn btn-primary"} href="#contato">
+      <a className={dark ? "btn btn-on-deep" : "btn btn-primary"} href={WA_LINK} target="_blank" rel="noopener">
         Agendar avaliação no WhatsApp
         <span className="arrow" />
       </a>
@@ -233,10 +236,9 @@ function TopNav() {
           <a href="#tratamentos">Tratamentos</a>
           <a href="#equipe">Equipe</a>
           <a href="#resultados">Resultados</a>
-          <a href="#investimento">Investimento</a>
         </nav>
 
-        <a className="btn btn-primary" style={{ padding: "12px 18px", fontSize: 13 }} href="#contato">
+        <a className="btn btn-primary" style={{ padding: "12px 18px", fontSize: 13 }} href={WA_LINK} target="_blank" rel="noopener">
           Agendar avaliação
           <span className="arrow" />
         </a>
@@ -247,6 +249,7 @@ function TopNav() {
 
 // — Footer —
 function Footer() {
+  const maps = "https://www.google.com/maps?q=R.+Tenerife,+67+-+Vila+Olímpia,+São+Paulo+-+SP,+04548-005";
   return (
     <footer className="site-footer" id="contato">
       <div className="shell">
@@ -265,31 +268,23 @@ function Footer() {
           <p style={{ color: "var(--on-deep-muted)", maxWidth: "44ch", fontSize: 14.5, lineHeight: 1.6, margin: 0 }}>
             Medicina capilar de precisão para mulheres. Diagnóstico baseado em evidência, protocolos exclusivos e acompanhamento médico contínuo.
           </p>
-          <a className="btn btn-on-deep" href="#" style={{ marginTop: 28 }}>
+          <a className="btn btn-on-deep" href={WA_LINK} target="_blank" rel="noopener" style={{ marginTop: 28 }}>
             Falar no WhatsApp
             <span className="arrow" />
           </a>
         </div>
 
         <div>
-          <h4>Atendimento</h4>
-          <a href="#">WhatsApp da clínica</a>
-          <a href="#">+55 (00) 0000-0000</a>
-          <a href="#">contato@ibh.med.br</a>
-          <a href="#">Seg – Sex · 09h às 19h</a>
-        </div>
-
-        <div>
           <h4>Endereço</h4>
-          <a href="#">Av. Placeholder, 0000 — sala 00</a>
-          <a href="#">Bairro · Cidade — UF</a>
-          <a href="#">CEP 00000-000</a>
-          <a href="#" style={{ marginTop: 12, opacity: 1, textDecoration: "underline", textDecorationColor: "rgba(232,226,212,.4)" }}>Como chegar</a>
+          <a href={maps} target="_blank" rel="noopener">R. Tenerife, 67 — Vila Olímpia</a>
+          <a href={maps} target="_blank" rel="noopener">São Paulo — SP</a>
+          <a href={maps} target="_blank" rel="noopener">CEP 04548-005</a>
+          <a href={maps} target="_blank" rel="noopener" style={{ marginTop: 12, opacity: 1, textDecoration: "underline", textDecorationColor: "rgba(232,226,212,.4)" }}>Como chegar</a>
         </div>
 
         <div className="legal">
           <span>© 2026 Instituto Bárbara Helen · Todos os direitos reservados</span>
-          <span>Resp. Téc.: Dra. Bárbara Helen — CRM/UF 00000 · RQE 00000</span>
+          <span>Resp. Téc.: Dra. Bárbara Helen · Membro da American Hair Research Society e da International Trichoscopy Society · CRM 160220/SP</span>
         </div>
       </div>
     </footer>
