@@ -490,7 +490,7 @@ function EquipeSection() {
 /* =========================================================
    ANTES / DEPOIS
 ========================================================= */
-function BeforeAfter({ id, months = "8 meses" }) {
+function BeforeAfter({ before, after }) {
   const [pos, setPos] = useS(50);
   const ref = useR(null);
   const dragging = useR(false);
@@ -522,6 +522,16 @@ function BeforeAfter({ id, months = "8 meses" }) {
     };
   }, []);
 
+  const imgBase = {
+    position: "absolute",
+    inset: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    pointerEvents: "none",
+    userSelect: "none"
+  };
+
   return (
     <div ref={ref} style={{
       position: "relative",
@@ -529,25 +539,20 @@ function BeforeAfter({ id, months = "8 meses" }) {
       borderRadius: "var(--r-md)",
       overflow: "hidden",
       cursor: "ew-resize",
-      userSelect: "none"
+      userSelect: "none",
+      background: "var(--bg-tint)"
     }}
     onMouseDown={(e) => { onDown(e); move(e.clientX); }}
     onTouchStart={(e) => { onDown(e); move(e.touches[0].clientX); }}
     >
-      <div style={{ position: "absolute", inset: 0 }}>
-        <image-slot id={`${id}-after`} placeholder="Depois · 8 meses" shape="rect" style={{ width: "100%", height: "100%" }}></image-slot>
-      </div>
-      <div style={{
-        position: "absolute",
-        top: 0, bottom: 0, left: 0,
-        width: `${pos}%`,
-        overflow: "hidden",
-        borderRight: "1px solid rgba(255,255,255,.7)"
-      }}>
-        <div style={{ position: "absolute", inset: 0, width: ref.current ? ref.current.offsetWidth + "px" : "100%" }}>
-          <image-slot id={`${id}-before`} placeholder="Antes" shape="rect" style={{ width: "100%", height: "100%" }}></image-slot>
-        </div>
-      </div>
+      {/* DEPOIS — imagem completa, ao fundo */}
+      <img src={after} alt="Depois" draggable="false" style={imgBase} />
+
+      {/* ANTES — recortada da esquerda até o divisor */}
+      <img src={before} alt="Antes" draggable="false" style={{
+        ...imgBase,
+        clipPath: `inset(0 ${100 - pos}% 0 0)`
+      }} />
 
       {/* labels */}
       <span style={{
@@ -559,7 +564,7 @@ function BeforeAfter({ id, months = "8 meses" }) {
         position: "absolute", right: 14, top: 14,
         background: "var(--caramelo)", color: "white",
         padding: "4px 10px", borderRadius: 999, fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase"
-      }}>Depois · {months}</span>
+      }}>Depois</span>
 
       {/* handle */}
       <div style={{
@@ -582,6 +587,16 @@ function BeforeAfter({ id, months = "8 meses" }) {
 
 function ResultadosSection({ show = true }) {
   if (!show) return null;
+
+  // Fotos hospedadas junto ao site (mesma pasta dos demais arquivos).
+  // Se estiverem numa subpasta, ajuste IMG_BASE — ex.: "fotos/".
+  const IMG_BASE = "";
+  const casos = [
+    { id: "case-1", before: `${IMG_BASE}antes-1.png`, after: `${IMG_BASE}depois-1.png` },
+    { id: "case-2", before: `${IMG_BASE}antes-2.png`, after: `${IMG_BASE}depois-2.png` },
+    { id: "case-3", before: `${IMG_BASE}antes-3.png`, after: `${IMG_BASE}depois-3.png` }
+  ];
+
   return (
     <section id="resultados" data-screen-label="06 Resultados" style={{ background: "var(--bg-tint)" }}>
       <div className="shell">
@@ -598,18 +613,8 @@ function ResultadosSection({ show = true }) {
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }} className="ra-grid">
-          {[
-            { id: "case-a", t: "Paciente A", m: "8 meses" },
-            { id: "case-b", t: "Paciente B", m: "12 meses" },
-            { id: "case-c", t: "Paciente C", m: "10 meses" }
-          ].map(c => (
-            <div key={c.id}>
-              <BeforeAfter id={c.id} months={c.m} />
-              <div style={{ display: "flex", justifyContent: "space-between", marginTop: 16 }}>
-                <span style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 18 }}>{c.t}</span>
-                <span className="mono">Protocolo combinado · {c.m}</span>
-              </div>
-            </div>
+          {casos.map(c => (
+            <BeforeAfter key={c.id} before={c.before} after={c.after} />
           ))}
         </div>
 
@@ -799,7 +804,7 @@ function FinalCTASection() {
         }}>
           <Eyebrow mark>Próximo passo</Eyebrow>
           <h2 className="section-h" style={{ marginTop: 24, marginBottom: 24, maxWidth: 880, marginLeft: "auto", marginRight: "auto" }}>
-            <em>Tempo é cabelo.</em><br />
+            <em>Cabelo é tempo.</em><br />
             Quanto antes diagnosticar, melhor o resultado.
           </h2>
           <p className="lede" style={{ margin: "0 auto 36px" }}>
