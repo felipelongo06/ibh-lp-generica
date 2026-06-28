@@ -799,7 +799,7 @@ function FinalCTASection() {
         }}>
           <Eyebrow mark>Próximo passo</Eyebrow>
           <h2 className="section-h" style={{ marginTop: 24, marginBottom: 24, maxWidth: 880, marginLeft: "auto", marginRight: "auto" }}>
-            <em>Cabelo é tempo.</em><br />
+            <em>Tempo é cabelo.</em><br />
             Quanto antes diagnosticar, melhor o resultado.
           </h2>
           <p className="lede" style={{ margin: "0 auto 36px" }}>
